@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Rewinder</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="static/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="static/dist/css/styles.css" rel="stylesheet">
+		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+		<link href='http://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans|Raleway' rel='stylesheet' type='text/css'>   
+    </head>
+<body>
+	<!-- <div class="container"> -->
+<!-- Wrap all page content here -->
+<!-- <div id="wrap"> -->
+<header>
+<div class="container-fluid">
+    <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">  <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Rewinder</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.chloemawer.com">Author</a></li>
+                <li><a href="/slides">Slides</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- /.container-fluid -->
+</header>
+<div class="container-fluid" >
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <iframe width='100%' height='475px' padding='50px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/cmm34.jhnoo6f3/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiY21tMzQiLCJhIjoiWVpjdDRDTSJ9.0v88VGSfeyANzefLUsTwCg'></iframe>            
+            <div class="carousel-caption">
+                <h2>Find historical sites near home</h2>
+            </div>
+        </div>
+        <div class="item">
+            <iframe width='100%' height='475px' padding="50px" frameBorder='0' src='https://a.tiles.mapbox.com/v4/cmm34.jg0c35c0/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiY21tMzQiLCJhIjoiWVpjdDRDTSJ9.0v88VGSfeyANzefLUsTwCg'></iframe> 
+            <div class="carousel-caption">
+                <h2>Find a route that meets your exercise goals</h2>
+            </div>
+        </div>
+        <div class="item" style="height=475px; align=middle">
+            <iframe width='100%' height='475px' padding="50px" frameBorder='0' src='static/images/painted_ladies.jpg'></iframe> 
+        
+            <div class="carousel-caption">
+                <h2>Actively explore your city</h2>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+<div class="form-inline" style="background-color:#414141">
+    <div id="getinfo">
+        <form class="form" method="get" action="/broute">
+            <div class="col-md-1">
+            </div>
+
+            <div class="col-md-4">
+                <input type="text" name="address" id="add" class="form-control" placeholder='Starting address'>
+            </div>
+            <div class="col-md-3">
+                <input type="int" name="miles" id="mile" class="form-control" placeholder='Desired number of miles'>
+            </div>
+            <div class="col-md-2">
+<!--                 <div class="panel panel-default"> -->
+                <input type="checkbox" name="elevation"  value=1> <label style="font-size:20px;color:#FFFFFF;font-family: Open Sans, sans-serif;">Minimize hills</label>
+<!--                 </div> -->
+            </div>
+            <div class="col-md-1">
+                <div class="submit">
+                <input type="submit" style="border-color:#674ea7;background-color:#674ea7;width=200px" class="btn btn-success" id="sub" value="Wind my path">
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </form>
+    </div><!-- /.col-lg-6 -->
+</div>
+<div id="footer">
+  <div class="container">
+  </div>
+</div>
+</div><!-- end container -->
+
+
+
+	<!-- script references -->
+	
+<!-- 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+		<script src="static/js/jquery.js"></script>
+		<script src="static/dist/js/bootstrap.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+		<script src="static/dist/js/scripts.js"></script>
+</body>
+</html>

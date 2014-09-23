@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Rewinder</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="static/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="static/dist/css/styles.css" rel="stylesheet">
+		<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+		<link href='http://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans|Raleway' rel='stylesheet' type='text/css'>   
+    </head>
+<body>
+	<!-- <div class="container"> -->
+<!-- Wrap all page content here -->
+<!-- <div id="wrap"> -->
+<header>
+<div class="container-fluid">
+    <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">  <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Rewinder</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.chloemawer.com">Author</a></li>
+                <li><a href="/slides">Slides</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- /.container-fluid -->
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <iframe width='100%' height='500px' padding='100px' frameBorder='0' ' src='/makemap'></iframe>  
+                    <p>Directions Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"></p>
+
+        </div>
+        <div class="col-md-5">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                Route information
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Number of sites seen: {{numseen}}</p>
+                            <p>Distance covered: {{dist}} miles</p>
+                            <p>Mean elevation gradient: {{mean_elev}} feet per mile </p>
+                            <p>Maximum elevation gradient: {{max_elev}} feet per mile </p>
+                             <div class="submit">
+                             <form class="form" method="get" action="/newroute">
+                                <input type="submit" style="border-color:#674ea7;background-color:#674ea7;width:200px" class="btn btn-success" id="sub" value="Wind me another route">
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        Places to see       
+                        </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {% for stop in stops %}
+                                <p>{{stop}}<p>
+                            {% endfor %}    
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                Directions
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {% for narr in narrative %}
+                                <p>{{narr}}<p>
+                            {% endfor %}          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        
+            <div class="col-md-1">
+                
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-1">
+           
+            </div>
+        
+    </div>
+
+</div>
+<div id="footer">
+  <div class="container">
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+ 
+
+
+
+
+	<!-- script references -->
+	
+<!-- 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+		<script src="static/js/jquery.js"></script>
+		<script src="static/dist/js/bootstrap.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+		<script src="static/dist/js/scripts.js"></script>
+	</body>
+</html>
