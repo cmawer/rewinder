@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+   
+   
+   
+   
+
+
+   <style>
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_d86275395cfe4329b01b7489579c6072" style="width: 960px; height: 500px"></div>
+
+   <script>
+
+      
+
+      var map = L.map('folium_d86275395cfe4329b01b7489579c6072').setView([29.762475, -95.520276], 13);
+
+      L.tileLayer('http://{s}.tiles.mapbox.com/v3/cmm34.jdomfk86/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: 'Map tiles by <a href="http://www.mapbox.com/m">Mapbox</a> Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+      }).addTo(map);
+
+      
+      var marker_1 = L.marker([29.762475, -95.520276]);
+      marker_1.bindPopup("Your entered starting point");
+      map.addLayer(marker_1)
+      
+
+      
+
+      
+
+      
+
+   </script>
+
+</body>

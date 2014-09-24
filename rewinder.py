@@ -102,12 +102,9 @@ def geocode(address_in):
     #Given string input of address, outputs lat/long
     url=url_geocode+address_in
     api_response=requests.get(url)
-    try:
-        lat_in=api_response.json()['results'][0]['locations'][0]['latLng']['lat']
-        long_in=api_response.json()['results'][0]['locations'][0]['latLng']['lng']
-        start=np.reshape(np.array([lat_in,long_in]),(1,2))
-    except:
-        start=pt=np.reshape(np.array([0,0]),(1,2))
+    lat_in=api_response.json()['results'][0]['locations'][0]['latLng']['lat']
+    long_in=api_response.json()['results'][0]['locations'][0]['latLng']['lng']
+    start=np.reshape(np.array([lat_in,long_in]),(1,2))
     return start
 
 def getMatrixMQ(pts_in):
@@ -433,8 +430,7 @@ def rankElevations(possible_locations,paths_sorted,start):
     return elevation_rank, mean_elevation_change,max_elevation_change
 
 def main(start, D,elevation_change_indicator):
-    latlong_box=makeBox(start,D)
-    possible_locations=getPossibleSites(latlong_box)
+    
     opt_route_locations, distance, direction_coordinates, narratives, added_indicator, paths_sorted, distances_sorted, numbers_seen_sorted, possible_locations,mean_elevation_change,max_elevation_change,elevations,distances_el=findOptRoute(possible_locations, D,start,elevation_change_indicator)
     print opt_route_locations
     stops=getStops(opt_route_locations,added_indicator)
