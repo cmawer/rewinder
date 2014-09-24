@@ -266,7 +266,11 @@ def findOptRoute(possible_locations,D,start,elevation_change_indicator):
     numbers_seen,paths,path_distances=getAllRoutes(matrix,D)
     
     # Pick best route and rank the rest 
-    opt_routes_ind=np.argwhere(numbers_seen == np.amax(numbers_seen)).flatten().tolist()
+    try:
+        opt_routes_ind=np.argwhere(numbers_seen == np.amax(numbers_seen)).flatten().tolist()
+    except: 
+        a=0
+        return a,a,a,a,a,a,a,a,a,a,a,a,a
     opt_route_max_dist_ind=opt_routes_ind[np.argmax(np.array(path_distances)[opt_routes_ind])]
     opt_path=paths[opt_route_max_dist_ind]
     paths=np.extract(numbers_seen>0,paths)
@@ -429,7 +433,7 @@ def rankElevations(possible_locations,paths_sorted,start):
     max_elevation_change=np.array(max_change)[elevation_rank]
     return elevation_rank, mean_elevation_change,max_elevation_change
 
-def main(start, D,elevation_change_indicator):
+def main(start, D,elevation_change_indicator,possible_locations):
     
     opt_route_locations, distance, direction_coordinates, narratives, added_indicator, paths_sorted, distances_sorted, numbers_seen_sorted, possible_locations,mean_elevation_change,max_elevation_change,elevations,distances_el=findOptRoute(possible_locations, D,start,elevation_change_indicator)
     print opt_route_locations

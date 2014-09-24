@@ -47,8 +47,8 @@ def routeit():
     except:
         print 'problem with get possible sites'
         return render_template('error.html')
-    
-    if not possible_locations:
+        
+    if len(possible_locations)==0:
         global start
         star=[start[0][0],start[0][1]]
         m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key='cmm34.jdomfk86')
@@ -59,7 +59,8 @@ def routeit():
     try:
         global distances_sorted, paths_sorted, numbers_seen_sorted
         opt_route_locations, distance, direction_coordinates, narratives, added_indicator, paths_sorted, distances_sorted, numbers_seen_sorted, possible_locations,mean_elevation_change,max_elevation_change,elevations,distances_el=rewind.findOptRoute(possible_locations, desired_distance,start,elevation_change_indicator)
-        
+        if distance==0:
+            return render_template('history.html')
     except:
         print 'problem with route function'
         return render_template('error.html')
