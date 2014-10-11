@@ -167,7 +167,7 @@ def getMatrixDirect(pts_in):
 #The following function pulls locations from MySQL
 
 def getPossibleSites(latlong_box):
-    conn = sql.connect(host='localhost',port=int(3306),user='root',passwd='encycsql',db='insightplaces')
+    conn = sql.connect(host='localhost',port=int(3306),user='root',passwd='',db='insightplaces')
     command='SELECT Place,Latitude,Longitude FROM Places WHERE Latitude > '+str(latlong_box[0])+' AND Latitude< '+str(latlong_box[2])+' AND Longitude> '+str(latlong_box[1])+' AND Longitude< '+str(latlong_box[3])
     places=[]
     lats=[]
@@ -186,7 +186,7 @@ def getPossibleSites(latlong_box):
 def getPhotos(start):
     photo_latlong_box=makeBox(start,10)
     #Get nearby historical places
-    conn = sql.connect(host='localhost',port=int(3306),user='root',passwd='encycsql',db='insightplaces')
+    conn = sql.connect(host='localhost',port=int(3306),user='root',passwd='',db='insightplaces')
     command='SELECT Addresses,Latitude,Longitude FROM Photos WHERE Latitude > '+str(photo_latlong_box[0])+' AND Latitude< '+str(photo_latlong_box[2])+' AND Longitude> '+str(photo_latlong_box[1])+' AND Longitude< '+str(photo_latlong_box[3])
     photo_urls=[]
     photo_lats=[]
@@ -345,7 +345,7 @@ def getDirections(api_response):
 
     
 def getStops(opt_route_locations,added_indicator):
-    conn = sql.connect(host='localhost',port=int(3306),user='root',passwd='encycsql',db='insightplaces')
+    conn = sql.connect(host='localhost',port=int(3306),user='root',passwd='',db='insightplaces')
     n=-1-added_indicator
     stops=['Home']
     for stop in opt_route_locations[1:n]:
