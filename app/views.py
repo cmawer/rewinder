@@ -11,7 +11,7 @@ import numpy as np
 start=np.array([0,0])
 
 
-#db = MySQLdb.connect(user="root", host="localhost", passwd="encycsql",port=3306, db="world_inn")
+#db = MySQLdb.connect()
 
 @app.route("/")
 def hello():
