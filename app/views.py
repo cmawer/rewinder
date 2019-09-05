@@ -6,12 +6,12 @@ import folium
 import rewinder as rewind
 import grasp
 import json
-global start
+
 import numpy as np
 start=np.array([0,0])
 
 
-#db = MySQLdb.connect()
+mapbox_api = os.environ.get("mapbox_api")
 
 @app.route("/")
 def hello():
@@ -51,7 +51,7 @@ def routeit():
     if len(possible_locations)==0:
         global start
         star=[start[0][0],start[0][1]]
-        m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key='cmm34.jdomfk86')
+        m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key=mapbox_api)
         m.simple_marker(star,popup='Your entered starting point')
         m.create_map(path='app/templates/historymap.html')
         return render_template('history.html')
@@ -68,7 +68,7 @@ def routeit():
     try:
         global start
         star=[start[0][0],start[0][1]]
-        m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key='cmm34.jdomfk86')
+        m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key=mapbox_api)
         m.line(direction_coordinates[0], line_color='#2DD0AF', line_weight=5)
     
         stops=rewind.getStops(opt_route_locations,added_indicator)
@@ -107,7 +107,7 @@ def newroute():
         new_route, distance, direction_coordinates, narratives, added_indicator, stops,elevations,distances_el,mean_elevation_change,max_elevation_change=rewind.newRoute(paths_sorted, distances_sorted, numbers_seen_sorted, possible_locations,start,desired_distance)
         global start
         star=[start[0][0],start[0][1]]
-        m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key='cmm34.jdomfk86')
+        m = folium.Map(location=star,zoom_start=13,tiles='Mapbox',API_key=mapbox_api)
         m.line(direction_coordinates[0], line_color='#2DD0AF', line_weight=5)
         j=-1
         n=-1-added_indicator
